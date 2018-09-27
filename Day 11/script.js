@@ -53,3 +53,8 @@ progress.addEventListener('click', scrub);
 progress.addEventListener('mousemove', (e) => mousedown && scrub(e));
 progress.addEventListener('mousedown', () => mousedown = true);
 progress.addEventListener('mouseup', () => mousedown = false);
+
+document.getElementById('eventClicker').addEventListener('click', function(){ alert('hello world'); }); 
+
+MimeType.addEventListener('click', function(){ myDiv.style.background = 'lightblue' }); 
+
