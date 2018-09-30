@@ -1,3 +1,5 @@
+<!-- The user submits, we add an item. Also select the ul with a class of plates. Wehere we're going to load all of our tapas dishes into. Then store all the data in an array -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +23,7 @@
     </ul>
     <form class="add-items">
       <input type="text" name="item" placeholder="Item Name" required>
-      <input type="submit" value="+ Add Item">
+      <input type="submit" value=" + Add Item">
     </form>
   </div>
 
@@ -29,24 +31,24 @@
   const addItems = document.querySelector('.add-items');
   const itemsList = document.querySelector('.plates');
   const items = JSON.parse(localStorage.getItem('items')) || [];
-  function addItem(e) {
+  function addItem(e) { // An event to add the items 
     e.preventDefault();
-    const text = (this.querySelector('[name=item]')).value; // value is the user's input
+    const text = (this.querySelector('[name=item]')).value; // value is the user's input / this is the actual form tab
     const item = {
       text,
       done: false
     };
-    items.push(item);
-    populateList(items, itemsList);
-    localStorage.setItem('items', JSON.stringify(items)); //store localStorage in the browser - only accepts strings. 
+    items.push(item); // put the new entered items in the array
+    populateList(items, itemsList); // creates an item and list
+    localStorage.setItem('items', JSON.stringify(items)); //store localStorage in the browser - only accepts strings. Items is a string: key/value. 
     this.reset();
   }
-  function populateList(plates = [], platesList) {
-    platesList.innerHTML = plates.map((plate, i) => {
-      // item refer to 1, 2, 3 in the list. 
+  function populateList(plates = [], platesList) { // creates the actual html list that is displayed
+    platesList.innerHTML = plates.map((plate, i) => { // map will take in an array of raw data and return an array of some other data. 
+      // item refer to 1, 2, 3 in the list. Inside the form, we look for the name attribute of 'Item'. // if the item has a property of done put a checked attribute. 
       return `
         <li>
-          <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? 'checked' : ''} /> 
+          <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? 'checked' : ''} />  
           <label for="item${i}">${plate.text}</label>
         </li>
       `;
@@ -60,11 +62,10 @@
     localStorage.setItem('items', JSON.stringify(items));
     populateList(items, itemsList);
   }
-  addItems.addEventListener('submit', addItem);
+  addItems.addEventListener('submit', addItem); // We our listening for the submit button
   itemsList.addEventListener('click', toggleDone);
   populateList(items, itemsList);
 </script>
-
 
 </body>
 </html>
