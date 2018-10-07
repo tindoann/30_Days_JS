@@ -46,9 +46,9 @@
   </div>
 
   <script>
-    // Not a ton of code, but hard to
+    // Not a ton of code, but hard to understand
     const nav = document.querySelector('#main'); // acquire the nav 
-    let topOfNav = nav.offsetTop; // Grab the top of the nav 
+    let topOfNav = nav.offsetTop; // declare the topOfNav and grab the top of the nav 
     function fixNav() { // fixNav is going to run every page scroll
       if (window.scrollY >= topOfNav) { // the navbar is higher than the current window
         document.body.style.paddingTop = nav.offsetHeight + 'px'; // gives whatever the size of  the nav is, corrects the janky movement to top of nav
