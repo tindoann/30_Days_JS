@@ -49,19 +49,20 @@
     // Not a ton of code, but hard to understand
     const nav = document.querySelector('#main'); // acquire the nav 
     let topOfNav = nav.offsetTop; // declare the topOfNav and grab the top of the nav 
+    
     function fixNav() { // fixNav is going to run every page scroll
-      if (window.scrollY >= topOfNav) { // the navbar is higher than the current window
-        document.body.style.paddingTop = nav.offsetHeight + 'px'; // gives whatever the size of  the nav is, corrects the janky movement to top of nav
+      if (window.scrollY >= topOfNav) { // the navbar is higher than the current window make it fixed to thte top
+        document.body.style.paddingTop = nav.offsetHeight + 'px'; // gives whatever the size of  the nav is, do not hard code it as any element changes it will distort the nav.  Corrects the janky movement to top of nav
         document.body.classList.add('fixed-nav');
       } else {
-        document.body.classList.remove('fixed-nav');
+        document.body.classList.remove('fixed-nav'); // if nav bar is higher than window, then remove the nav
         document.body.style.paddingTop = 0;
       }
     }
     window.addEventListener('scroll', fixNav);
 
   </script>
-
+ 
 <!-- when an element is fixed it no longer takes up space on the document causing a reflow on the page -->
 
 </body>

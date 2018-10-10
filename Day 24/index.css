@@ -1,4 +1,4 @@
-tml {
+html {
   box-sizing: border-box;
   background: #eeeeee;
   font-family: 'helvetica neue';
@@ -22,7 +22,7 @@ body {
   text-align: justify;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.05);
   transform: scale(0.98);
-  transition: transform 0.5s;
+  transition: transform 0.5s; /* note: changes the top nav bar */ 
 }
 
 body.fixed-nav .site-wrap {
